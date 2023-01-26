@@ -6,30 +6,38 @@ public class Main {
         //Scanner scan1 = new Scanner(System.in);
         //System.out.println("Введите выражение:"); // не матерное
         //System.out.println(scan1.nextLine());
+        String txt = "100*50";
+        System.out.println(calc(txt));
+    }
 
-        String consoleLine = "100*50";
+    public static String calc(String txt)
+    {
+        String result = null;
+        String consoleLine = txt;
         String[] parts = consoleLine.split("\\+|\\-|\\*|\\/");
-        String[] sign = consoleLine.split("\\+|\\-|\\*|\\/");
 
         int x1 = Integer.parseInt(parts[0]);
         int x2 = Integer.parseInt(parts[1]);
-        //System.out.println(x1+x2);
 
         if (consoleLine.contains("+"))
         {
-            System.out.println("Ваше выражение: "+x1+"+"+x2+"="+(x1+x2)+";" );
+            //System.out.println("Ваше выражение: "+x1+"+"+x2+"="+(x1+x2)+";" );
+            result = new String("Ваше выражение: "+x1+"+"+x2+"="+(x1+x2)+";" );
         }
         if (consoleLine.contains("-"))
         {
-            System.out.println("Ваше выражение: "+x1+"-"+x2+"="+(x1-x2)+";" );
+            //System.out.println("Ваше выражение: "+x1+"-"+x2+"="+(x1-x2)+";" );
+            result = new String("Ваше выражение: "+x1+"-"+x2+"="+(x1-x2)+";" );
         }
         if (consoleLine.contains("/"))
         {
-            System.out.println("Ваше выражение: "+x1+"/"+x2+"="+(x1/x2)+";" );
+            //System.out.println("Ваше выражение: "+x1+"/"+x2+"="+(x1/x2)+";" );
+            result = new String("Ваше выражение: "+x1+"/"+x2+"="+(x1/x2)+";" );
         }
         if (consoleLine.contains("*"))
         {
-            System.out.println("Ваше выражение: "+x1+"*"+x2+"="+(x1*x2)+";" );
+            //System.out.println("Ваше выражение: "+x1+"*"+x2+"="+(x1*x2)+";" );
+            result = new String("Ваше выражение: "+x1+"*"+x2+"="+(x1*x2)+";" );
         }
 
         for(String part : parts){
@@ -37,12 +45,7 @@ public class Main {
 
             //System.out.println(part);
         }
-    }
 
-    public static String calc(String input)
-    {
-        System.out.println("Hello world!");
-        String s1 = "x";
-        return s1;
+        return result;
     }
 }
