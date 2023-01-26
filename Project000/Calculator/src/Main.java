@@ -5,11 +5,11 @@ public class Main {
     {
         while (true)
         {
-            Scanner scan1 = new Scanner(System.in);
+            Scanner input = new Scanner(System.in);
             System.out.print("Введите выражение: ");
             //System.out.println(scan1.nextLine());
             //String query = "100*50";
-            String query = scan1.nextLine();
+            String query = input.nextLine();
             System.out.println(calc(query));
             System.out.println();
         }
