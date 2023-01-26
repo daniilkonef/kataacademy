@@ -16,7 +16,7 @@ public class Main {
 
     public static String calc(String query)
     {
-        String result = "не удалось решить выражение";
+        String result = "не удалось решить выражение, введите только арабские или только греческие цифры.";
         String consoleLine = query;
         String[] parts = consoleLine.split("\\+|\\-|\\*|\\/");
 
@@ -27,7 +27,7 @@ public class Main {
         }
         catch (Exception e)
         {
-            System.out.println("выражение содержит не только арабские числа");
+            System.out.print("Ваше выражение имеет смешанные системы исчисления,");
         }
 
 
