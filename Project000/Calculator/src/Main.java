@@ -7,8 +7,6 @@ public class Main {
         {
             Scanner input = new Scanner(System.in);
             System.out.print("Введите выражение: ");
-            //System.out.println(scan1.nextLine());
-            //String query = "100*50";
             String query = input.nextLine();
             System.out.println(calc(query));
             System.out.println();
@@ -18,40 +16,51 @@ public class Main {
 
     public static String calc(String query)
     {
-        String result = null;
+        String result = "не удалось решить выражение";
         String consoleLine = query;
         String[] parts = consoleLine.split("\\+|\\-|\\*|\\/");
 
-        int x1 = Integer.parseInt(parts[0]);
-        int x2 = Integer.parseInt(parts[1]);
-
-        if (consoleLine.contains("+"))
-        {
-            //System.out.println("Ваше выражение: "+x1+"+"+x2+"="+(x1+x2)+";" );
-            result = new String("Решение: "+x1+"+"+x2+"="+(x1+x2)+";" );
+        int x1=0, x2=0; Object ob1=null, ob2=null;
+        try {
+            x1 = Integer.parseInt(parts[0]);  ob1 = x1;
+            x2 = Integer.parseInt(parts[1]);  ob2 = x2;
         }
-        if (consoleLine.contains("-"))
+        catch (Exception e)
         {
-            //System.out.println("Ваше выражение: "+x1+"-"+x2+"="+(x1-x2)+";" );
-            result = new String("Решение: "+x1+"-"+x2+"="+(x1-x2)+";" );
-        }
-        if (consoleLine.contains("/"))
-        {
-            //System.out.println("Ваше выражение: "+x1+"/"+x2+"="+(x1/x2)+";" );
-            result = new String("Решение: "+x1+"/"+x2+"="+(x1/x2)+";" );
-        }
-        if (consoleLine.contains("*"))
-        {
-            //System.out.println("Ваше выражение: "+x1+"*"+x2+"="+(x1*x2)+";" );
-            result = new String("Решение: "+x1+"*"+x2+"="+(x1*x2)+";" );
+            System.out.println("выражение содержит не только арабские числа");
         }
 
-        for(String part : parts){
-            Integer.parseInt(part);
 
-            //System.out.println(part);
+        if( (ob1 instanceof Integer) && (ob2 instanceof Integer))
+        {
+            //System.out.println("имеем дело с целочисленным выражением");
+            if (consoleLine.contains("+"))
+            {
+                //System.out.println("Ваше выражение: "+x1+"+"+x2+"="+(x1+x2)+";" );
+                result = new String("Решение: "+x1+"+"+x2+"="+(x1+x2)+";" );
+            }
+            if (consoleLine.contains("-"))
+            {
+                //System.out.println("Ваше выражение: "+x1+"-"+x2+"="+(x1-x2)+";" );
+                result = new String("Решение: "+x1+"-"+x2+"="+(x1-x2)+";" );
+            }
+            if (consoleLine.contains("/"))
+            {
+                //System.out.println("Ваше выражение: "+x1+"/"+x2+"="+(x1/x2)+";" );
+                result = new String("Решение: "+x1+"/"+x2+"="+(x1/x2)+";" );
+            }
+            if (consoleLine.contains("*"))
+            {
+                //System.out.println("Ваше выражение: "+x1+"*"+x2+"="+(x1*x2)+";" );
+                result = new String("Решение: "+x1+"*"+x2+"="+(x1*x2)+";" );
+            }
+
+            for(String part : parts){
+                Integer.parseInt(part);
+
+                //System.out.println(part);
+            }
         }
-
         return result;
     }
 }
