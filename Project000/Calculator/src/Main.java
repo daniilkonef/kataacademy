@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
@@ -61,6 +62,28 @@ public class Main {
                 //System.out.println(part);
             }
         }
+
+        // псевдокод греческого вычислителя
+        // массивСтрок греческиеРазрешенныеЧисла = { массив разрешенных греческих цифр } HashMap<Integer, String> passportsAndNames = new HashMap<>();
+        HashMap<Integer, String> decAndGreek = new HashMap<>();
+        decAndGreek.put(1,"I");
+        decAndGreek.put(2,"II");
+        decAndGreek.put(3,"III");
+        decAndGreek.put(4,"IV");
+        decAndGreek.put(5,"V");
+        decAndGreek.put(6,"VI");
+        decAndGreek.put(7,"VII");
+        decAndGreek.put(8,"VIII");
+        decAndGreek.put(9,"IX");
+        decAndGreek.put(10,"X");
+
+        // истинность леваяЧастьГодна? = проверить что левая входит в массив разрешенных символов и вернуть истину или ложь
+        // истинность праваяЧастьГодна? = проверить правую часть на соответствие разрешенному символу и вернуть истину или ложь
+        // если (обе части имеет истину) то:
+        //      преобразовать левую часть в десятичное число;
+        //      преобразовать правую часть в десятичное число;
+        //
+
         return result;
     }
 }
