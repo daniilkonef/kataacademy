@@ -25,6 +25,37 @@ public class Main {
         try {
             x1 = Integer.parseInt(parts[0]);  ob1 = x1;
             x2 = Integer.parseInt(parts[1]);  ob2 = x2;
+
+            if( (ob1 instanceof Integer) && (ob2 instanceof Integer))
+            {
+                //System.out.println("имеем дело с целочисленным выражением");
+                if (consoleLine.contains("+"))
+                {
+                    //System.out.println("Ваше выражение: "+x1+"+"+x2+"="+(x1+x2)+";" );
+                    result = new String("Решение: "+x1+"+"+x2+"="+(x1+x2)+";" );
+                }
+                if (consoleLine.contains("-"))
+                {
+                    //System.out.println("Ваше выражение: "+x1+"-"+x2+"="+(x1-x2)+";" );
+                    result = new String("Решение: "+x1+"-"+x2+"="+(x1-x2)+";" );
+                }
+                if (consoleLine.contains("/"))
+                {
+                    //System.out.println("Ваше выражение: "+x1+"/"+x2+"="+(x1/x2)+";" );
+                    result = new String("Решение: "+x1+"/"+x2+"="+(x1/x2)+";" );
+                }
+                if (consoleLine.contains("*"))
+                {
+                    //System.out.println("Ваше выражение: "+x1+"*"+x2+"="+(x1*x2)+";" );
+                    result = new String("Решение: "+x1+"*"+x2+"="+(x1*x2)+";" );
+                }
+
+                for(String part : parts){
+                    Integer.parseInt(part);
+
+                    //System.out.println(part);
+                }
+            }
         }
         catch (Exception e)
         {
@@ -32,36 +63,7 @@ public class Main {
         }
 
 
-        if( (ob1 instanceof Integer) && (ob2 instanceof Integer))
-        {
-            //System.out.println("имеем дело с целочисленным выражением");
-            if (consoleLine.contains("+"))
-            {
-                //System.out.println("Ваше выражение: "+x1+"+"+x2+"="+(x1+x2)+";" );
-                result = new String("Решение: "+x1+"+"+x2+"="+(x1+x2)+";" );
-            }
-            if (consoleLine.contains("-"))
-            {
-                //System.out.println("Ваше выражение: "+x1+"-"+x2+"="+(x1-x2)+";" );
-                result = new String("Решение: "+x1+"-"+x2+"="+(x1-x2)+";" );
-            }
-            if (consoleLine.contains("/"))
-            {
-                //System.out.println("Ваше выражение: "+x1+"/"+x2+"="+(x1/x2)+";" );
-                result = new String("Решение: "+x1+"/"+x2+"="+(x1/x2)+";" );
-            }
-            if (consoleLine.contains("*"))
-            {
-                //System.out.println("Ваше выражение: "+x1+"*"+x2+"="+(x1*x2)+";" );
-                result = new String("Решение: "+x1+"*"+x2+"="+(x1*x2)+";" );
-            }
 
-            for(String part : parts){
-                Integer.parseInt(part);
-
-                //System.out.println(part);
-            }
-        }
 
         // псевдокод греческого вычислителя
         // массивСтрок греческиеРазрешенныеЧисла = { массив разрешенных греческих цифр } HashMap<Integer, String> passportsAndNames = new HashMap<>();
