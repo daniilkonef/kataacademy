@@ -13,6 +13,17 @@ public class Main {
             String query = input.nextLine();
             System.out.println(query);
             //if (query == "exit") break; // не работает почему то
+
+            //Запустить проверку системы исчисления. Какая обнаружена?
+                //1 - греческая (greekNotationSystem)
+                // или
+                //2 - арабская (arabNotationSystem)
+            //если греческая:
+                //то выполнить конвертацию в арабскую
+                //вычислить арабским вычислителем
+            //если арабская:
+                //то вычислить арабским вычислителем
+
             System.out.println(calc(query));
             System.out.println();
         }
@@ -72,9 +83,9 @@ public class Main {
         greekAndDec.put("VIII",8);
         greekAndDec.put("IX",9);
         greekAndDec.put("X",10);
-        System.out.println(greekAndDec);
-        System.out.println(greekAndDec.get("VII"));
-        System.out.println(greekAndDec.containsKey("VII"));
+        //System.out.println(greekAndDec);
+        //System.out.println(greekAndDec.get("VII"));
+        //System.out.println(greekAndDec.containsKey("VII"));
 
 
         try
