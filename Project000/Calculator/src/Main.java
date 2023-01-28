@@ -1,3 +1,5 @@
+// https://kataacademy.github.io/kata-program.io/task-calculator?b24form_user=1.176659-1675424624-551c804ae8494d131fd1cad0cc9001a50800e465354f151a923abad650bb32e2
+
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -9,9 +11,12 @@ public class Main {
             Scanner input = new Scanner(System.in);
             System.out.print("Введите выражение: ");
             String query = input.nextLine();
+            System.out.println(query);
+            //if (query == "exit") break; // не работает почему то
             System.out.println(calc(query));
             System.out.println();
         }
+        //System.out.println("Работа завершена.");
 
     }
 
@@ -29,26 +34,10 @@ public class Main {
             if( (ob1 instanceof Integer) && (ob2 instanceof Integer))
             {
                 //System.out.println("имеем дело с целочисленным выражением");
-                if (consoleLine.contains("+"))
-                {
-                    //System.out.println("Ваше выражение: "+x1+"+"+x2+"="+(x1+x2)+";" );
-                    result = new String("Решение: "+x1+"+"+x2+"="+(x1+x2)+";" );
-                }
-                if (consoleLine.contains("-"))
-                {
-                    //System.out.println("Ваше выражение: "+x1+"-"+x2+"="+(x1-x2)+";" );
-                    result = new String("Решение: "+x1+"-"+x2+"="+(x1-x2)+";" );
-                }
-                if (consoleLine.contains("/"))
-                {
-                    //System.out.println("Ваше выражение: "+x1+"/"+x2+"="+(x1/x2)+";" );
-                    result = new String("Решение: "+x1+"/"+x2+"="+(x1/x2)+";" );
-                }
-                if (consoleLine.contains("*"))
-                {
-                    //System.out.println("Ваше выражение: "+x1+"*"+x2+"="+(x1*x2)+";" );
-                    result = new String("Решение: "+x1+"*"+x2+"="+(x1*x2)+";" );
-                }
+                if (consoleLine.contains("+")) {result = new String("Решение: "+x1+"+"+x2+"="+(x1+x2)+";" ); }   //System.out.println("Ваше выражение: "+x1+"+"+x2+"="+(x1+x2)+";" );
+                if (consoleLine.contains("-")) { result = new String("Решение: "+x1+"-"+x2+"="+(x1-x2)+";" ); }  //System.out.println("Ваше выражение: "+x1+"-"+x2+"="+(x1-x2)+";" );
+                if (consoleLine.contains("/")) {result = new String("Решение: "+x1+"/"+x2+"="+(x1/x2)+";" ); }   //System.out.println("Ваше выражение: "+x1+"/"+x2+"="+(x1/x2)+";" );
+                if (consoleLine.contains("*")) { result = new String("Решение: "+x1+"*"+x2+"="+(x1*x2)+";" ); } //System.out.println("Ваше выражение: "+x1+"*"+x2+"="+(x1*x2)+";" );
 //                for(String part : parts){
 //                    Integer.parseInt(part);
 //
@@ -72,20 +61,6 @@ public class Main {
 //              преобразовать левую часть в десятичное число;
 //              преобразовать правую часть в десятичное число;
 
-//        HashMap<Integer, String> decAndGreek = new HashMap<>();
-//        decAndGreek.put(1,"I");
-//        decAndGreek.put(2,"II");
-//        decAndGreek.put(3,"III");
-//        decAndGreek.put(4,"IV");
-//        decAndGreek.put(5,"V");
-//        decAndGreek.put(6,"VI");
-//        decAndGreek.put(7,"VII");
-//        decAndGreek.put(8,"VIII");
-//        decAndGreek.put(9,"IX");
-//        decAndGreek.put(10,"X");
-//        System.out.println(decAndGreek);
-//        System.out.println(decAndGreek.get(7));
-
         HashMap<String,Integer> greekAndDec = new HashMap<>();
         greekAndDec.put("I",1);
         greekAndDec.put("II",2);
@@ -101,10 +76,25 @@ public class Main {
         System.out.println(greekAndDec.get("VII"));
         System.out.println(greekAndDec.containsKey("VII"));
 
-        String s1=null, s2=null;
-        try {
-            s1 = parts[0];  ob1 = s1;
-            s2 = parts[0];  ob2 = s2;
+
+        try
+        {
+            String leftString=null, rightString=null;
+            leftString = parts[0];  ob1 = leftString;
+            rightString = parts[1];  ob2 = rightString;
+            if (greekAndDec.containsKey(leftString))
+            {
+                //System.out.println("Левая часть = "+leftString);
+                x1 = greekAndDec.get(leftString);
+                System.out.println("x1 ="+x1);
+            }
+
+            if (greekAndDec.containsKey(rightString))
+            {
+                //System.out.println("Левая часть = "+leftString);
+                x2 = greekAndDec.get(rightString);
+                System.out.println("x2 ="+x2);
+            }
 
 
         }
