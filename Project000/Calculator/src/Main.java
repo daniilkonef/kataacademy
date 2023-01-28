@@ -49,12 +49,11 @@ public class Main {
                     //System.out.println("Ваше выражение: "+x1+"*"+x2+"="+(x1*x2)+";" );
                     result = new String("Решение: "+x1+"*"+x2+"="+(x1*x2)+";" );
                 }
-
-                for(String part : parts){
-                    Integer.parseInt(part);
-
-                    //System.out.println(part);
-                }
+//                for(String part : parts){
+//                    Integer.parseInt(part);
+//
+//                    //System.out.println(part);
+//                }
             }
         }
         catch (Exception e)
