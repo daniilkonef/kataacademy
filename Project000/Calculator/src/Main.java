@@ -36,7 +36,7 @@ public class Main {
             //если арабская:
                 //то вычислить арабским вычислителем
 
-            System.out.println(calc(query, checkNotationSystem(query, greekAndDec)));
+            System.out.println(calc(query, checkNotationSystem(query, greekAndDec),greekAndDec ));
             System.out.println();
         }
         System.out.println("Работа приложения завершена.");
@@ -117,7 +117,7 @@ public class Main {
 
     }
 
-    public static String calc(String query, String typeOfNotationSystem)
+    public static String calc(String query, String typeOfNotationSystem, HashMap<String,Integer> greekAndDec)
     {
         String result = "не удалось решить выражение, введите только арабские или только греческие цифры.";
         String consoleLine = query;
@@ -154,7 +154,9 @@ public class Main {
         if (typeOfNotationSystem.contains(new String("Обнаружена греческая система счисления")))
         {
             System.out.println("Греческий вычислитель нуждается в разработке.");
-
+            System.out.println(greekAndDec);
+            //System.out.println(greekAndDec.get("VII"));
+            //System.out.println(greekAndDec.containsKey("VII"));
 
         }
 
