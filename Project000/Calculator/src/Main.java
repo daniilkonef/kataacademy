@@ -9,10 +9,10 @@ public class Main {
         while (true)
         {
             Scanner input = new Scanner(System.in);
-            System.out.print("Введите выражение: ");
-            String query = input.nextLine();
-            System.out.println(query);
-            //if (query == "exit") break; // не работает почему то
+            System.out.print("Введите ваше выражение: ");
+            String query = input.nextLine(); //System.out.println(query);
+            if (query.equalsIgnoreCase(new String("exit"))) break;
+            System.out.println(checkNotationSystem(query));
 
             //Запустить проверку системы исчисления. Какая обнаружена?
                 //1 - греческая (greekNotationSystem)
@@ -27,7 +27,81 @@ public class Main {
             System.out.println(calc(query));
             System.out.println();
         }
-        //System.out.println("Работа завершена.");
+        System.out.println("Работа приложения завершена.");
+
+    }
+    public static String checkNotationSystem(String query)
+    {
+        String result = "Систему исчисления не удалось определить";
+        String consoleLine = query;
+        String[] parts = consoleLine.split("\\+|\\-|\\*|\\/");
+
+        int x1=0, x2=0; Object ob1=null, ob2=null;
+
+        try {
+            x1 = Integer.parseInt(parts[0]);  ob1 = x1;
+            x2 = Integer.parseInt(parts[1]);  ob2 = x2;
+
+            if( (ob1 instanceof Integer) && (ob2 instanceof Integer))
+            {
+                //System.out.println("имеем дело с целочисленным выражением");
+                return result = "Обнаружена десятичная система счисления";
+            }
+        }
+        catch (Exception e)
+        {
+            //System.out.print("Ваше выражение имеет недопустимую системы исчилсения.");
+        }
+
+        try
+        {
+            HashMap<String,Integer> greekAndDec = new HashMap<>();
+            greekAndDec.put("I",1);
+            greekAndDec.put("II",2);
+            greekAndDec.put("III",3);
+            greekAndDec.put("IV",4);
+            greekAndDec.put("V",5);
+            greekAndDec.put("VI",6);
+            greekAndDec.put("VII",7);
+            greekAndDec.put("VIII",8);
+            greekAndDec.put("IX",9);
+            greekAndDec.put("X",10);
+            //System.out.println(greekAndDec);
+            //System.out.println(greekAndDec.get("VII"));
+            //System.out.println(greekAndDec.containsKey("VII"));
+
+            String leftString=null, rightString=null;
+            leftString = parts[0];  ob1 = leftString;
+            rightString = parts[1];  ob2 = rightString;
+
+//            if (greekAndDec.containsKey(leftString))
+//            {
+//                //System.out.println("Левая часть = "+leftString);
+//                x1 = greekAndDec.get(leftString);
+//                System.out.println("x1 ="+x1);
+//            }
+//
+//            if (greekAndDec.containsKey(rightString))
+//            {
+//                //System.out.println("Левая часть = "+leftString);
+//                x2 = greekAndDec.get(rightString);
+//                System.out.println("x2 ="+x2);
+//            }
+
+            if( greekAndDec.containsKey(leftString) && greekAndDec.containsKey(rightString) )
+            {
+                //System.out.println("имеем дело с целочисленным выражением");
+                return result = "Обнаружена греческая система счисления";
+            }
+
+
+        }
+        catch (Exception e)
+        {
+            //System.out.print("Ваше выражение имеет смешанные системы исчисления,");
+        }
+
+        return result;
 
     }
 
@@ -58,10 +132,8 @@ public class Main {
         }
         catch (Exception e)
         {
-            System.out.print("Ваше выражение имеет смешанные системы исчисления,");
+            //System.out.print("Ваше выражение имеет смешанные системы исчисления,");
         }
-
-
 
 
 //         псевдокод греческого вычислителя
@@ -71,48 +143,6 @@ public class Main {
 //         если (обе части имеют истину) то:
 //              преобразовать левую часть в десятичное число;
 //              преобразовать правую часть в десятичное число;
-
-        HashMap<String,Integer> greekAndDec = new HashMap<>();
-        greekAndDec.put("I",1);
-        greekAndDec.put("II",2);
-        greekAndDec.put("III",3);
-        greekAndDec.put("IV",4);
-        greekAndDec.put("V",5);
-        greekAndDec.put("VI",6);
-        greekAndDec.put("VII",7);
-        greekAndDec.put("VIII",8);
-        greekAndDec.put("IX",9);
-        greekAndDec.put("X",10);
-        //System.out.println(greekAndDec);
-        //System.out.println(greekAndDec.get("VII"));
-        //System.out.println(greekAndDec.containsKey("VII"));
-
-
-        try
-        {
-            String leftString=null, rightString=null;
-            leftString = parts[0];  ob1 = leftString;
-            rightString = parts[1];  ob2 = rightString;
-            if (greekAndDec.containsKey(leftString))
-            {
-                //System.out.println("Левая часть = "+leftString);
-                x1 = greekAndDec.get(leftString);
-                System.out.println("x1 ="+x1);
-            }
-
-            if (greekAndDec.containsKey(rightString))
-            {
-                //System.out.println("Левая часть = "+leftString);
-                x2 = greekAndDec.get(rightString);
-                System.out.println("x2 ="+x2);
-            }
-
-
-        }
-        catch (Exception e)
-        {
-            //System.out.print("Ваше выражение имеет смешанные системы исчисления,");
-        }
 
         return result;
     }
