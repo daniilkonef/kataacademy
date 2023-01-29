@@ -6,13 +6,25 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args)
     {
+        HashMap<String,Integer> greekAndDec = new HashMap<>();
+        greekAndDec.put("I",1);
+        greekAndDec.put("II",2);
+        greekAndDec.put("III",3);
+        greekAndDec.put("IV",4);
+        greekAndDec.put("V",5);
+        greekAndDec.put("VI",6);
+        greekAndDec.put("VII",7);
+        greekAndDec.put("VIII",8);
+        greekAndDec.put("IX",9);
+        greekAndDec.put("X",10);
+
         while (true)
         {
             Scanner input = new Scanner(System.in);
             System.out.print("Введите ваше выражение: ");
             String query = input.nextLine(); //System.out.println(query);
             if (query.equalsIgnoreCase(new String("exit"))) break;
-            System.out.println(checkNotationSystem(query));
+            System.out.println( checkNotationSystem(query, greekAndDec) );
 
             //Запустить проверку системы исчисления. Какая обнаружена?
                 //1 - греческая (greekNotationSystem)
@@ -24,13 +36,13 @@ public class Main {
             //если арабская:
                 //то вычислить арабским вычислителем
 
-            System.out.println(calc(query));
+            System.out.println(calc(query, checkNotationSystem(query, greekAndDec)));
             System.out.println();
         }
         System.out.println("Работа приложения завершена.");
 
     }
-    public static String checkNotationSystem(String query)
+    public static String checkNotationSystem(String query, HashMap<String,Integer> greekAndDec)
     {
         String result = "Систему исчисления не удалось определить";
         String consoleLine = query;
@@ -55,17 +67,17 @@ public class Main {
 
         try
         {
-            HashMap<String,Integer> greekAndDec = new HashMap<>();
-            greekAndDec.put("I",1);
-            greekAndDec.put("II",2);
-            greekAndDec.put("III",3);
-            greekAndDec.put("IV",4);
-            greekAndDec.put("V",5);
-            greekAndDec.put("VI",6);
-            greekAndDec.put("VII",7);
-            greekAndDec.put("VIII",8);
-            greekAndDec.put("IX",9);
-            greekAndDec.put("X",10);
+//            HashMap<String,Integer> greekAndDec = new HashMap<>();
+//            greekAndDec.put("I",1);
+//            greekAndDec.put("II",2);
+//            greekAndDec.put("III",3);
+//            greekAndDec.put("IV",4);
+//            greekAndDec.put("V",5);
+//            greekAndDec.put("VI",6);
+//            greekAndDec.put("VII",7);
+//            greekAndDec.put("VIII",8);
+//            greekAndDec.put("IX",9);
+//            greekAndDec.put("X",10);
             //System.out.println(greekAndDec);
             //System.out.println(greekAndDec.get("VII"));
             //System.out.println(greekAndDec.containsKey("VII"));
@@ -90,7 +102,7 @@ public class Main {
 
             if( greekAndDec.containsKey(leftString) && greekAndDec.containsKey(rightString) )
             {
-                //System.out.println("имеем дело с целочисленным выражением");
+                //System.out.println("Имеем дело с греческим выражением.");
                 return result = "Обнаружена греческая система счисления";
             }
 
@@ -105,35 +117,48 @@ public class Main {
 
     }
 
-    public static String calc(String query)
+    public static String calc(String query, String typeOfNotationSystem)
     {
         String result = "не удалось решить выражение, введите только арабские или только греческие цифры.";
         String consoleLine = query;
         String[] parts = consoleLine.split("\\+|\\-|\\*|\\/");
 
-        int x1=0, x2=0; Object ob1=null, ob2=null;
-        try {
-            x1 = Integer.parseInt(parts[0]);  ob1 = x1;
-            x2 = Integer.parseInt(parts[1]);  ob2 = x2;
+        if (typeOfNotationSystem.contains(new String("Обнаружена десятичная система счисления")))
+        {
+            //System.out.println("Тут нужно вызвать арабский вычислитель.");
+            int x1=0, x2=0; Object ob1=null, ob2=null;
+            try {
+                x1 = Integer.parseInt(parts[0]);  ob1 = x1;
+                x2 = Integer.parseInt(parts[1]);  ob2 = x2;
 
-            if( (ob1 instanceof Integer) && (ob2 instanceof Integer))
-            {
-                //System.out.println("имеем дело с целочисленным выражением");
-                if (consoleLine.contains("+")) {result = new String("Решение: "+x1+"+"+x2+"="+(x1+x2)+";" ); }   //System.out.println("Ваше выражение: "+x1+"+"+x2+"="+(x1+x2)+";" );
-                if (consoleLine.contains("-")) { result = new String("Решение: "+x1+"-"+x2+"="+(x1-x2)+";" ); }  //System.out.println("Ваше выражение: "+x1+"-"+x2+"="+(x1-x2)+";" );
-                if (consoleLine.contains("/")) {result = new String("Решение: "+x1+"/"+x2+"="+(x1/x2)+";" ); }   //System.out.println("Ваше выражение: "+x1+"/"+x2+"="+(x1/x2)+";" );
-                if (consoleLine.contains("*")) { result = new String("Решение: "+x1+"*"+x2+"="+(x1*x2)+";" ); } //System.out.println("Ваше выражение: "+x1+"*"+x2+"="+(x1*x2)+";" );
+                if( (ob1 instanceof Integer) && (ob2 instanceof Integer))
+                {
+                    //System.out.println("имеем дело с целочисленным выражением");
+                    if (consoleLine.contains("+")) {result = new String("Решение: "+x1+"+"+x2+"="+(x1+x2)+";" ); }   //System.out.println("Ваше выражение: "+x1+"+"+x2+"="+(x1+x2)+";" );
+                    if (consoleLine.contains("-")) { result = new String("Решение: "+x1+"-"+x2+"="+(x1-x2)+";" ); }  //System.out.println("Ваше выражение: "+x1+"-"+x2+"="+(x1-x2)+";" );
+                    if (consoleLine.contains("/")) {result = new String("Решение: "+x1+"/"+x2+"="+(x1/x2)+";" ); }   //System.out.println("Ваше выражение: "+x1+"/"+x2+"="+(x1/x2)+";" );
+                    if (consoleLine.contains("*")) { result = new String("Решение: "+x1+"*"+x2+"="+(x1*x2)+";" ); } //System.out.println("Ваше выражение: "+x1+"*"+x2+"="+(x1*x2)+";" );
 //                for(String part : parts){
 //                    Integer.parseInt(part);
 //
 //                    //System.out.println(part);
 //                }
+                }
+            }
+            catch (Exception e)
+            {
+                //System.out.print("Ваше выражение имеет смешанные системы исчисления,");
             }
         }
-        catch (Exception e)
+
+        if (typeOfNotationSystem.contains(new String("Обнаружена греческая система счисления")))
         {
-            //System.out.print("Ваше выражение имеет смешанные системы исчисления,");
+            System.out.println("Греческий вычислитель нуждается в разработке.");
+
+
         }
+
+
 
 
 //         псевдокод греческого вычислителя
