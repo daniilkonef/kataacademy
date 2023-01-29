@@ -154,9 +154,39 @@ public class Main {
         if (typeOfNotationSystem.contains(new String("Обнаружена греческая система счисления")))
         {
             System.out.println("Греческий вычислитель нуждается в разработке.");
-            System.out.println(greekAndDec);
+            //String leftString=null, rightString=null;
+            //leftString = parts[0];  ob1 = leftString;
+            //rightString = parts[1];  ob2 = rightString;
+
+            //System.out.println(greekAndDec);
             //System.out.println(greekAndDec.get("VII"));
+            System.out.println( greekAndDec.get(parts[0]) );
+            System.out.println( greekAndDec.get(parts[1]) );
             //System.out.println(greekAndDec.containsKey("VII"));
+
+            int x1=0, x2=0; Object ob1=null, ob2=null;
+            try {
+                x1 = greekAndDec.get(parts[0]);  ob1 = x1;
+                x2 = greekAndDec.get(parts[1]);  ob2 = x2;
+
+                if( (ob1 instanceof Integer) && (ob2 instanceof Integer))
+                {
+                    //System.out.println("имеем дело с целочисленным выражением");
+                    if (consoleLine.contains("+")) {result = new String("Решение: "+parts[0]+"+"+parts[1]+"="+(x1+x2)+";" ); }   //System.out.println("Ваше выражение: "+x1+"+"+x2+"="+(x1+x2)+";" );
+                    if (consoleLine.contains("-")) { result = new String("Решение: "+x1+"-"+x2+"="+(x1-x2)+";" ); }  //System.out.println("Ваше выражение: "+x1+"-"+x2+"="+(x1-x2)+";" );
+                    if (consoleLine.contains("/")) {result = new String("Решение: "+x1+"/"+x2+"="+(x1/x2)+";" ); }   //System.out.println("Ваше выражение: "+x1+"/"+x2+"="+(x1/x2)+";" );
+                    if (consoleLine.contains("*")) { result = new String("Решение: "+x1+"*"+x2+"="+(x1*x2)+";" ); } //System.out.println("Ваше выражение: "+x1+"*"+x2+"="+(x1*x2)+";" );
+//                for(String part : parts){
+//                    Integer.parseInt(part);
+//
+//                    //System.out.println(part);
+//                }
+                }
+            }
+            catch (Exception e)
+            {
+                System.out.print("Произошло исключение в греческом вычислителе, требуются исправления.");
+            }
 
         }
 
