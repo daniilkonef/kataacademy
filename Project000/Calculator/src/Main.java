@@ -18,107 +18,109 @@ public class Main {
         greekAndDec.put("IX",9);
         greekAndDec.put("X",10);
 
-        HashMap<Integer,String> decAndgreek = new HashMap<>();
-        decAndgreek.put(1,"I");
-        decAndgreek.put(2,"II");
-        decAndgreek.put(3,"III");
-        decAndgreek.put(4,"IV");
-        decAndgreek.put(5,"V");
-        decAndgreek.put(6,"VI");
-        decAndgreek.put(7,"VII");
-        decAndgreek.put(8,"VIII");
-        decAndgreek.put(9,"IX");
-        decAndgreek.put(10,"X");
-        decAndgreek.put(11,"XI");
-        decAndgreek.put(12,"XII");
-        decAndgreek.put(13,"XIII");
-        decAndgreek.put(14,"XIV");
-        decAndgreek.put(15,"XV");
-        decAndgreek.put(16,"XVI");
-        decAndgreek.put(17,"XVII");
-        decAndgreek.put(18,"XVIII");
-        decAndgreek.put(19,"XIX");
-        decAndgreek.put(20,"XX");
-        decAndgreek.put(21,"XXI");
-        decAndgreek.put(22,"XXII");
-        decAndgreek.put(23,"XXIII");
-        decAndgreek.put(24,"XXIV");
-        decAndgreek.put(25,"XXV");
-        decAndgreek.put(26,"XXVI");
-        decAndgreek.put(27,"XXVII");
-        decAndgreek.put(28,"XXVIII");
-        decAndgreek.put(29,"XXIX");
-        decAndgreek.put(30,"XXX");
-        decAndgreek.put(31,"XXXI");
-        decAndgreek.put(32,"XXXII");
-        decAndgreek.put(33,"XXXIII");
-        decAndgreek.put(34,"XXXIV");
-        decAndgreek.put(35,"XXXV");
-        decAndgreek.put(36,"XXXVI");
-        decAndgreek.put(37,"XXXVII");
-        decAndgreek.put(38,"XXXVIII");
-        decAndgreek.put(39,"XXXIX");
-        decAndgreek.put(40,"XL");
-        decAndgreek.put(41,"XLI");
-        decAndgreek.put(42,"XLII");
-        decAndgreek.put(43,"XLIII");
-        decAndgreek.put(44,"XLIV");
-        decAndgreek.put(45,"XLV");
-        decAndgreek.put(46,"XLVI");
-        decAndgreek.put(47,"XLVII");
-        decAndgreek.put(48,"XLVIII");
-        decAndgreek.put(49,"XLIX");
-        decAndgreek.put(50,"L");
-        decAndgreek.put(51,"LI");
-        decAndgreek.put(52,"LII");
-        decAndgreek.put(53,"LIII");
-        decAndgreek.put(54,"LIV");
-        decAndgreek.put(55,"LV");
-        decAndgreek.put(56,"LVI");
-        decAndgreek.put(57,"LVII");
-        decAndgreek.put(58,"LVIII");
-        decAndgreek.put(59,"LIX");
-        decAndgreek.put(60,"LXI");
-        decAndgreek.put(61,"LX");
-        decAndgreek.put(62,"LXII");
-        decAndgreek.put(63,"LXIII");
-        decAndgreek.put(64,"LXIV");
-        decAndgreek.put(65,"LXV");
-        decAndgreek.put(66,"LXVI");
-        decAndgreek.put(67,"LXVII");
-        decAndgreek.put(68,"LXVIII");
-        decAndgreek.put(69,"LXIX");
-        decAndgreek.put(70,"LXX");
-        decAndgreek.put(71,"LXXI");
-        decAndgreek.put(72,"LXXII");
-        decAndgreek.put(73,"LXXIII");
-        decAndgreek.put(74,"LXXIV");
-        decAndgreek.put(75,"LXXV");
-        decAndgreek.put(76,"LXXVI");
-        decAndgreek.put(77,"LXXVII");
-        decAndgreek.put(78,"LXXVIII");
-        decAndgreek.put(79,"LXXIX");
-        decAndgreek.put(80,"LXXX");
-        decAndgreek.put(81,"LXXXI");
-        decAndgreek.put(82,"LXXXII");
-        decAndgreek.put(83,"LXXXIII");
-        decAndgreek.put(84,"LXXXIV");
-        decAndgreek.put(85,"LXXXV");
-        decAndgreek.put(86,"LXXXVI");
-        decAndgreek.put(87,"LXXXVII");
-        decAndgreek.put(88,"LXXXVIII");
-        decAndgreek.put(89,"LXXXIX");
-        decAndgreek.put(90,"X");
-        decAndgreek.put(91,"X");
-        decAndgreek.put(92,"X");
-        decAndgreek.put(93,"X");
-        decAndgreek.put(94,"X");
-        decAndgreek.put(95,"X");
-        decAndgreek.put(96,"X");
-        decAndgreek.put(97,"X");
-        decAndgreek.put(98,"X");
-        decAndgreek.put(99,"X");
-        decAndgreek.put(100,"X");
+        HashMap<Integer,String> decAndGreek = new HashMap<>();
+        decAndGreek.put(1,"I");
+        decAndGreek.put(2,"II");
+        decAndGreek.put(3,"III");
+        decAndGreek.put(4,"IV");
+        decAndGreek.put(5,"V");
+        decAndGreek.put(6,"VI");
+        decAndGreek.put(7,"VII");
+        decAndGreek.put(8,"VIII");
+        decAndGreek.put(9,"IX");
+        decAndGreek.put(10,"X");
+        decAndGreek.put(11,"XI");
+        decAndGreek.put(12,"XII");
+        decAndGreek.put(13,"XIII");
+        decAndGreek.put(14,"XIV");
+        decAndGreek.put(15,"XV");
+        decAndGreek.put(16,"XVI");
+        decAndGreek.put(17,"XVII");
+        decAndGreek.put(18,"XVIII");
+        decAndGreek.put(19,"XIX");
+        decAndGreek.put(20,"XX");
+        decAndGreek.put(21,"XXI");
+        decAndGreek.put(22,"XXII");
+        decAndGreek.put(23,"XXIII");
+        decAndGreek.put(24,"XXIV");
+        decAndGreek.put(25,"XXV");
+        decAndGreek.put(26,"XXVI");
+        decAndGreek.put(27,"XXVII");
+        decAndGreek.put(28,"XXVIII");
+        decAndGreek.put(29,"XXIX");
+        decAndGreek.put(30,"XXX");
+        decAndGreek.put(31,"XXXI");
+        decAndGreek.put(32,"XXXII");
+        decAndGreek.put(33,"XXXIII");
+        decAndGreek.put(34,"XXXIV");
+        decAndGreek.put(35,"XXXV");
+        decAndGreek.put(36,"XXXVI");
+        decAndGreek.put(37,"XXXVII");
+        decAndGreek.put(38,"XXXVIII");
+        decAndGreek.put(39,"XXXIX");
+        decAndGreek.put(40,"XL");
+        decAndGreek.put(41,"XLI");
+        decAndGreek.put(42,"XLII");
+        decAndGreek.put(43,"XLIII");
+        decAndGreek.put(44,"XLIV");
+        decAndGreek.put(45,"XLV");
+        decAndGreek.put(46,"XLVI");
+        decAndGreek.put(47,"XLVII");
+        decAndGreek.put(48,"XLVIII");
+        decAndGreek.put(49,"XLIX");
+        decAndGreek.put(50,"L");
+        decAndGreek.put(51,"LI");
+        decAndGreek.put(52,"LII");
+        decAndGreek.put(53,"LIII");
+        decAndGreek.put(54,"LIV");
+        decAndGreek.put(55,"LV");
+        decAndGreek.put(56,"LVI");
+        decAndGreek.put(57,"LVII");
+        decAndGreek.put(58,"LVIII");
+        decAndGreek.put(59,"LIX");
+        decAndGreek.put(60,"LXI");
+        decAndGreek.put(61,"LX");
+        decAndGreek.put(62,"LXII");
+        decAndGreek.put(63,"LXIII");
+        decAndGreek.put(64,"LXIV");
+        decAndGreek.put(65,"LXV");
+        decAndGreek.put(66,"LXVI");
+        decAndGreek.put(67,"LXVII");
+        decAndGreek.put(68,"LXVIII");
+        decAndGreek.put(69,"LXIX");
+        decAndGreek.put(70,"LXX");
+        decAndGreek.put(71,"LXXI");
+        decAndGreek.put(72,"LXXII");
+        decAndGreek.put(73,"LXXIII");
+        decAndGreek.put(74,"LXXIV");
+        decAndGreek.put(75,"LXXV");
+        decAndGreek.put(76,"LXXVI");
+        decAndGreek.put(77,"LXXVII");
+        decAndGreek.put(78,"LXXVIII");
+        decAndGreek.put(79,"LXXIX");
+        decAndGreek.put(80,"LXXX");
+        decAndGreek.put(81,"LXXXI");
+        decAndGreek.put(82,"LXXXII");
+        decAndGreek.put(83,"LXXXIII");
+        decAndGreek.put(84,"LXXXIV");
+        decAndGreek.put(85,"LXXXV");
+        decAndGreek.put(86,"LXXXVI");
+        decAndGreek.put(87,"LXXXVII");
+        decAndGreek.put(88,"LXXXVIII");
+        decAndGreek.put(89,"LXXXIX");
+        decAndGreek.put(90,"XC");
+        decAndGreek.put(91,"XCI");
+        decAndGreek.put(92,"XCII");
+        decAndGreek.put(93,"XCIII");
+        decAndGreek.put(94,"XCIV");
+        decAndGreek.put(95,"XCV");
+        decAndGreek.put(96,"XCVI");
+        decAndGreek.put(97,"XCVII");
+        decAndGreek.put(98,"XCVIII");
+        decAndGreek.put(99,"XCIX");
+        decAndGreek.put(100,"C");
+
+        System.out.println(decAndGreek.get(100));
 
         while (true)
         {
@@ -138,7 +140,7 @@ public class Main {
             //если арабская:
                 //то вычислить арабским вычислителем
 
-            System.out.println(calc(query, checkNotationSystem(query, greekAndDec),greekAndDec ));
+            System.out.println( calc(query, checkNotationSystem(query, greekAndDec),greekAndDec, decAndGreek )); // HashMap<Integer,String> decAndGreek
             System.out.println();
         }
         System.out.println("Работа приложения завершена.");
@@ -219,7 +221,7 @@ public class Main {
 
     }
 
-    public static String calc(String query, String typeOfNotationSystem, HashMap<String,Integer> greekAndDec)
+    public static String calc(String query, String typeOfNotationSystem, HashMap<String,Integer> greekAndDec, HashMap<Integer,String> decAndGreek)
     {
         String result = "не удалось решить выражение, введите только арабские или только греческие цифры.";
         String consoleLine = query;
@@ -274,10 +276,10 @@ public class Main {
                 if( (ob1 instanceof Integer) && (ob2 instanceof Integer))
                 {
                     //System.out.println("имеем дело с целочисленным выражением");
-                    if (consoleLine.contains("+")) {result = new String("Решение: "+s1+"+"+s2+"="+(x1+x2)+";" ); }   //System.out.println("Ваше выражение: "+x1+"+"+x2+"="+(x1+x2)+";" );
-                    if (consoleLine.contains("-")) { result = new String("Решение: "+s1+"-"+s2+"="+(x1-x2)+";" ); }  //System.out.println("Ваше выражение: "+x1+"-"+x2+"="+(x1-x2)+";" );
-                    if (consoleLine.contains("/")) {result = new String("Решение: "+s1+"/"+s2+"="+(x1/x2)+";" ); }   //System.out.println("Ваше выражение: "+x1+"/"+x2+"="+(x1/x2)+";" );
-                    if (consoleLine.contains("*")) { result = new String("Решение: "+s1+"*"+s2+"="+(x1*x2)+";" ); } //System.out.println("Ваше выражение: "+x1+"*"+x2+"="+(x1*x2)+";" );
+                    if (consoleLine.contains("+")) {result = new String("Решение: "+s1+"+"+s2+"="+decAndGreek.get(x1+x2).toString()+";" ); }   //System.out.println("Ваше выражение: "+x1+"+"+x2+"="+(x1+x2)+";" );
+                    if (consoleLine.contains("-")) { result = new String("Решение: "+s1+"-"+s2+"="+decAndGreek.get(x1-x2).toString()+";" ); }  //System.out.println("Ваше выражение: "+x1+"-"+x2+"="+(x1-x2)+";" );
+                    if (consoleLine.contains("/")) {result = new String("Решение: "+s1+"/"+s2+"="+decAndGreek.get(x1/x2).toString()+";" ); }   //System.out.println("Ваше выражение: "+x1+"/"+x2+"="+(x1/x2)+";" );
+                    if (consoleLine.contains("*")) { result = new String("Решение: "+s1+"*"+s2+"="+decAndGreek.get(x1*x2).toString()+";" ); } //System.out.println("Ваше выражение: "+x1+"*"+x2+"="+(x1*x2)+";" );
 //                for(String part : parts){
 //                    Integer.parseInt(part);
 //
