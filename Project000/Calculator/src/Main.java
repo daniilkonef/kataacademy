@@ -139,8 +139,15 @@ public class Main {
                 //вычислить арабским вычислителем
             //если арабская:
                 //то вычислить арабским вычислителем
+            try
+                {
+                    System.out.println( calc(query, checkNotationSystem(query, romansAndArabs),romansAndArabs, arabsAndRomans )); // HashMap<Integer,String> arabsAndRomans
+                }
+            catch (Exception e1)
+                {
+                    System.out.println(e1.getMessage());
+                }
 
-            System.out.println( calc(query, checkNotationSystem(query, romansAndArabs),romansAndArabs, arabsAndRomans )); // HashMap<Integer,String> arabsAndRomans
             System.out.println();
         }
         System.out.println("Работа приложения завершена.");
@@ -222,7 +229,7 @@ public class Main {
 
     }
 
-    public static String calc(String query, String typeOfNotationSystem, HashMap<String,Integer> greekAndDec, HashMap<Integer,String> decAndGreek) //throws Exception
+    public static String calc(String query, String typeOfNotationSystem, HashMap<String,Integer> greekAndDec, HashMap<Integer,String> decAndGreek) throws Exception
     {
         String result = "не удалось решить выражение, введите только арабские или только греческие цифры.";
         String consoleLine = query;
@@ -231,18 +238,21 @@ public class Main {
         if (typeOfNotationSystem.contains(new String("Обнаружена арабская система счисления")))
         {
             //System.out.println("Тут нужно вызвать арабский вычислитель.");
+
             int x1=0, x2=0; Object ob1=null, ob2=null;
             try {
                 x1 = Integer.parseInt(parts[0]);  ob1 = x1;
                 x2 = Integer.parseInt(parts[1]);  ob2 = x2;
+                if(x1>10) throw new Exception("Случилось исключение при x1>10");
 
                 if( (ob1 instanceof Integer) && (ob2 instanceof Integer))
                 {
+
                     //System.out.println("имеем дело с целочисленным выражением");
                     if (consoleLine.contains("+")) {result = new String("Решение: "+x1+"+"+x2+"="+(x1+x2)+";" ); }   //System.out.println("Ваше выражение: "+x1+"+"+x2+"="+(x1+x2)+";" );
-                    if (consoleLine.contains("-")) { result = new String("Решение: "+x1+"-"+x2+"="+(x1-x2)+";" ); }  //System.out.println("Ваше выражение: "+x1+"-"+x2+"="+(x1-x2)+";" );
+                    if (consoleLine.contains("-")) {result = new String("Решение: "+x1+"-"+x2+"="+(x1-x2)+";" ); }  //System.out.println("Ваше выражение: "+x1+"-"+x2+"="+(x1-x2)+";" );
                     if (consoleLine.contains("/")) {result = new String("Решение: "+x1+"/"+x2+"="+(x1/x2)+";" ); }   //System.out.println("Ваше выражение: "+x1+"/"+x2+"="+(x1/x2)+";" );
-                    if (consoleLine.contains("*")) { result = new String("Решение: "+x1+"*"+x2+"="+(x1*x2)+";" ); } //System.out.println("Ваше выражение: "+x1+"*"+x2+"="+(x1*x2)+";" );
+                    if (consoleLine.contains("*")) {result = new String("Решение: "+x1+"*"+x2+"="+(x1*x2)+";" ); } //System.out.println("Ваше выражение: "+x1+"*"+x2+"="+(x1*x2)+";" );
 //                for(String part : parts){
 //                    Integer.parseInt(part);
 //
