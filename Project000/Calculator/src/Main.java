@@ -120,7 +120,7 @@ public class Main {
         decAndGreek.put(99,"XCIX");
         decAndGreek.put(100,"C");
 
-        System.out.println(decAndGreek.get(100));
+        //System.out.println(decAndGreek.get(100));
 
         while (true)
         {
@@ -128,7 +128,7 @@ public class Main {
             System.out.print("Введите ваше выражение: ");
             String query = input.nextLine(); //System.out.println(query);
             if (query.equalsIgnoreCase(new String("exit"))) break;
-            System.out.println( checkNotationSystem(query, greekAndDec) );
+            //System.out.println( checkNotationSystem(query, greekAndDec) );
 
             //Запустить проверку системы исчисления. Какая обнаружена?
                 //1 - греческая (greekNotationSystem)
@@ -162,6 +162,7 @@ public class Main {
             {
                 //System.out.println("имеем дело с целочисленным выражением");
                 return result = "Обнаружена десятичная система счисления";
+                //return result = null;
             }
         }
         catch (Exception e)
@@ -208,6 +209,7 @@ public class Main {
             {
                 //System.out.println("Имеем дело с греческим выражением.");
                 return result = "Обнаружена греческая система счисления";
+                //return result = null;
             }
 
 
@@ -257,15 +259,15 @@ public class Main {
 
         if (typeOfNotationSystem.contains(new String("Обнаружена греческая система счисления")))
         {
-            System.out.println("Греческий вычислитель нуждается в разработке.");
+            //System.out.println("Греческий вычислитель нуждается в разработке.");
             //String leftString=null, rightString=null;
             //leftString = parts[0];  ob1 = leftString;
             //rightString = parts[1];  ob2 = rightString;
 
             //System.out.println(greekAndDec);
             //System.out.println(greekAndDec.get("VII"));
-            System.out.println( greekAndDec.get(parts[0]) );
-            System.out.println( greekAndDec.get(parts[1]) );
+            //System.out.println( greekAndDec.get(parts[0]) );
+            //System.out.println( greekAndDec.get(parts[1]) );
             //System.out.println(greekAndDec.containsKey("VII"));
 
             try {
