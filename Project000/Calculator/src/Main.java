@@ -161,8 +161,8 @@ public class Main {
             if( (ob1 instanceof Integer) && (ob2 instanceof Integer))
             {
                 //System.out.println("имеем дело с целочисленным выражением");
-                return result = "Обнаружена десятичная система счисления";
-                //return result = null;
+                return result = "Обнаружена арабская система счисления";
+
             }
         }
         catch (Exception e)
@@ -209,7 +209,6 @@ public class Main {
             {
                 //System.out.println("Имеем дело с греческим выражением.");
                 return result = "Обнаружена греческая система счисления";
-                //return result = null;
             }
 
 
@@ -223,13 +222,13 @@ public class Main {
 
     }
 
-    public static String calc(String query, String typeOfNotationSystem, HashMap<String,Integer> greekAndDec, HashMap<Integer,String> decAndGreek)
+    public static String calc(String query, String typeOfNotationSystem, HashMap<String,Integer> greekAndDec, HashMap<Integer,String> decAndGreek) //throws Exception
     {
         String result = "не удалось решить выражение, введите только арабские или только греческие цифры.";
         String consoleLine = query;
         String[] parts = consoleLine.split("\\+|\\-|\\*|\\/");
 
-        if (typeOfNotationSystem.contains(new String("Обнаружена десятичная система счисления")))
+        if (typeOfNotationSystem.contains(new String("Обнаружена арабская система счисления")))
         {
             //System.out.println("Тут нужно вызвать арабский вычислитель.");
             int x1=0, x2=0; Object ob1=null, ob2=null;
@@ -296,16 +295,13 @@ public class Main {
 
         }
 
-
-
-
 //         псевдокод греческого вычислителя
 //         Словарь греческиеРазрешенныеЧисла = { массив разрешенных греческих цифр } HashMap<Integer, String> passportsAndNames = new HashMap<>(); https://javarush.com/groups/posts/1940-klass-hashmap-
 //         истинность леваяЧастьГодна? = проверить что левая часть входит в Словарь разрешенных символов и вернуть истину или ложь
 //         истинность праваяЧастьГодна? = проверить правую часть входит в Словарь разрешенных символов и вернуть истину или ложь
 //         если (обе части имеют истину) то:
-//              преобразовать левую часть в десятичное число;
-//              преобразовать правую часть в десятичное число;
+//              преобразовать левую часть в арабское число;
+//              преобразовать правую часть в арабское число;
 
         return result;
     }
