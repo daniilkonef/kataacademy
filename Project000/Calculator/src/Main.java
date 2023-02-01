@@ -146,6 +146,7 @@ public class Main {
             catch (Exception e1)
                 {
                     System.out.println(e1.getMessage());
+                    break;
                 }
 
             System.out.println();
@@ -240,30 +241,24 @@ public class Main {
             //System.out.println("Тут нужно вызвать арабский вычислитель.");
 
             int x1=0, x2=0; Object ob1=null, ob2=null;
-            try {
+            //try {
                 x1 = Integer.parseInt(parts[0]);  ob1 = x1;
                 x2 = Integer.parseInt(parts[1]);  ob2 = x2;
                 if(x1>10) throw new Exception("Случилось исключение при x1>10");
 
                 if( (ob1 instanceof Integer) && (ob2 instanceof Integer))
                 {
-
                     //System.out.println("имеем дело с целочисленным выражением");
                     if (consoleLine.contains("+")) {result = new String("Решение: "+x1+"+"+x2+"="+(x1+x2)+";" ); }   //System.out.println("Ваше выражение: "+x1+"+"+x2+"="+(x1+x2)+";" );
                     if (consoleLine.contains("-")) {result = new String("Решение: "+x1+"-"+x2+"="+(x1-x2)+";" ); }  //System.out.println("Ваше выражение: "+x1+"-"+x2+"="+(x1-x2)+";" );
                     if (consoleLine.contains("/")) {result = new String("Решение: "+x1+"/"+x2+"="+(x1/x2)+";" ); }   //System.out.println("Ваше выражение: "+x1+"/"+x2+"="+(x1/x2)+";" );
                     if (consoleLine.contains("*")) {result = new String("Решение: "+x1+"*"+x2+"="+(x1*x2)+";" ); } //System.out.println("Ваше выражение: "+x1+"*"+x2+"="+(x1*x2)+";" );
-//                for(String part : parts){
-//                    Integer.parseInt(part);
-//
-//                    //System.out.println(part);
-//                }
                 }
-            }
-            catch (Exception e)
-            {
+            //}
+            //catch (Exception e)
+            //{
                 //System.out.print("Ваше выражение имеет смешанные системы исчисления,");
-            }
+            //}
         }
 
         if (typeOfNotationSystem.contains(new String("Обнаружена греческая система счисления")))
