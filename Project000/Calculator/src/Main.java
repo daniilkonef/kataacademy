@@ -244,7 +244,7 @@ public class Main {
             //try {
                 x1 = Integer.parseInt(parts[0]);  ob1 = x1;
                 x2 = Integer.parseInt(parts[1]);  ob2 = x2;
-                if(x1>10) throw new Exception("Случилось исключение при x1>10");
+                if(x1>10 || x2>10) throw new Exception("Ошибка: введенное число превышает 10. Это запрещено согласно п3 Технического Задания."); //хотя мой калькцлятор способен работать с числами больше 10
 
                 if( (ob1 instanceof Integer) && (ob2 instanceof Integer))
                 {
