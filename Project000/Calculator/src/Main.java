@@ -154,13 +154,15 @@ public class Main {
         System.out.println("Работа приложения завершена.");
 
     }
-    public static String checkNotationSystem(String query, HashMap<String,Integer> greekAndDec) //throws Exception
+    public static String checkNotationSystem(String query, HashMap<String,Integer> greekAndDec) throws Exception //throws Exception
     {
         String result = "Систему исчисления не удалось определить";
         String consoleLine = query;
         String[] parts = consoleLine.split("\\+|\\-|\\*|\\/");
 
         int x1=0, x2=0; Object ob1=null, ob2=null;
+        ob1 = Double.parseDouble(parts[0]); ob2 = parts[1];
+        if (ob1 instanceof Double) throw new Exception("Обнаружена дробь в х1");
 
         try {
             x1 = Integer.parseInt(parts[0]);  ob1 = x1;
@@ -180,38 +182,10 @@ public class Main {
 
         try
         {
-//            HashMap<String,Integer> greekAndDec = new HashMap<>();
-//            greekAndDec.put("I",1);
-//            greekAndDec.put("II",2);
-//            greekAndDec.put("III",3);
-//            greekAndDec.put("IV",4);
-//            greekAndDec.put("V",5);
-//            greekAndDec.put("VI",6);
-//            greekAndDec.put("VII",7);
-//            greekAndDec.put("VIII",8);
-//            greekAndDec.put("IX",9);
-//            greekAndDec.put("X",10);
-            //System.out.println(greekAndDec);
-            //System.out.println(greekAndDec.get("VII"));
-            //System.out.println(greekAndDec.containsKey("VII"));
 
             String leftString=null, rightString=null;
             leftString = parts[0];  ob1 = leftString;
             rightString = parts[1];  ob2 = rightString;
-
-//            if (greekAndDec.containsKey(leftString))
-//            {
-//                //System.out.println("Левая часть = "+leftString);
-//                x1 = greekAndDec.get(leftString);
-//                System.out.println("x1 ="+x1);
-//            }
-//
-//            if (greekAndDec.containsKey(rightString))
-//            {
-//                //System.out.println("Левая часть = "+leftString);
-//                x2 = greekAndDec.get(rightString);
-//                System.out.println("x2 ="+x2);
-//            }
 
             if( greekAndDec.containsKey(leftString) && greekAndDec.containsKey(rightString) )
             {
