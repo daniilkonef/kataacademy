@@ -154,7 +154,7 @@ public class Main {
         System.out.println("Работа приложения завершена.");
 
     }
-    public static String checkNotationSystem(String query, HashMap<String,Integer> greekAndDec)
+    public static String checkNotationSystem(String query, HashMap<String,Integer> greekAndDec) //throws Exception
     {
         String result = "Систему исчисления не удалось определить";
         String consoleLine = query;
@@ -235,6 +235,7 @@ public class Main {
         String result = "не удалось решить выражение, введите только арабские или только греческие цифры.";
         String consoleLine = query;
         String[] parts = consoleLine.split("\\+|\\-|\\*|\\/");
+        //if(!(ob1 instanceof Integer)||!(ob2 instanceof Integer)) throw new Exception("Ошибка: введенное число имеет смешанную систему исчисления. Это запрещено согласно п5 Технического Задания."); //хотя мой калькцлятор способен работать с числами больше 10
 
         if (typeOfNotationSystem.contains(new String("Обнаружена арабская система счисления")))
         {
@@ -307,7 +308,7 @@ public class Main {
 //         если (обе части имеют истину) то:
 //              преобразовать левую часть в арабское число;
 //              преобразовать правую часть в арабское число;
-
+        if(result.contains("не удалось решить выражение, введите только арабские или только греческие цифры.")) throw new Exception("Ошибка: введенное выражени еявляется смешанным. Это запрещено согласно п5 Технического Задания.");
         return result;
     }
 }
