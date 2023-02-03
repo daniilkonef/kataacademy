@@ -2,6 +2,7 @@
 
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args)
@@ -160,11 +161,23 @@ public class Main {
         String consoleLine = query;
         String[] parts = consoleLine.split("\\+|\\-|\\*|\\/");
 
-        int x1=0, x2=0; Object ob1=null, ob2=null;
-        ob1 = Double.parseDouble(parts[0]); ob2 = parts[1];
-        if (ob1 instanceof Double) throw new Exception("Обнаружена дробь в х1");
+        //ob1 = Double.parseDouble(parts[0]); ob2 = parts[1];
+        //if (ob1 instanceof Double) throw new Exception("Обнаружена дробь в х1");
+
+        //String example = "1331.2";
+        String example1 = parts[0];
+        String example2 = parts[1];
+        if (Pattern.matches("^[\\+\\-]{0,1}[0-9]+[\\.\\,][0-9]+$", (CharSequence) example1)) {
+            System.out.println("matches double");
+            throw new Exception("Обнаружена дробь в первом числе. Дроби запрещены п4 Техзадания.");
+        }
+        if (Pattern.matches("^[\\+\\-]{0,1}[0-9]+[\\.\\,][0-9]+$", (CharSequence) example2)) {
+            System.out.println("matches double");
+            throw new Exception("Обнаружена дробь во втором числе. Дроби запрещены п4 Техзадания.");
+        }
 
         try {
+            int x1=0, x2=0; Object ob1=null, ob2=null;
             x1 = Integer.parseInt(parts[0]);  ob1 = x1;
             x2 = Integer.parseInt(parts[1]);  ob2 = x2;
 
@@ -182,7 +195,7 @@ public class Main {
 
         try
         {
-
+            int x1=0, x2=0; Object ob1=null, ob2=null;
             String leftString=null, rightString=null;
             leftString = parts[0];  ob1 = leftString;
             rightString = parts[1];  ob2 = rightString;
@@ -258,14 +271,9 @@ public class Main {
                 {
                     //System.out.println("имеем дело с целочисленным выражением");
                     if (consoleLine.contains("+")) {result = new String("Решение: "+s1+"+"+s2+"="+decAndGreek.get(x1+x2).toString()+";" ); }   //System.out.println("Ваше выражение: "+x1+"+"+x2+"="+(x1+x2)+";" );
-                    if (consoleLine.contains("-")) { result = new String("Решение: "+s1+"-"+s2+"="+decAndGreek.get(x1-x2).toString()+";" ); }  //System.out.println("Ваше выражение: "+x1+"-"+x2+"="+(x1-x2)+";" );
+                    if (consoleLine.contains("-")) {result = new String("Решение: "+s1+"-"+s2+"="+decAndGreek.get(x1-x2).toString()+";" ); }  //System.out.println("Ваше выражение: "+x1+"-"+x2+"="+(x1-x2)+";" );
                     if (consoleLine.contains("/")) {result = new String("Решение: "+s1+"/"+s2+"="+decAndGreek.get(x1/x2).toString()+";" ); }   //System.out.println("Ваше выражение: "+x1+"/"+x2+"="+(x1/x2)+";" );
-                    if (consoleLine.contains("*")) { result = new String("Решение: "+s1+"*"+s2+"="+decAndGreek.get(x1*x2).toString()+";" ); } //System.out.println("Ваше выражение: "+x1+"*"+x2+"="+(x1*x2)+";" );
-//                for(String part : parts){
-//                    Integer.parseInt(part);
-//
-//                    //System.out.println(part);
-//                }
+                    if (consoleLine.contains("*")) {result = new String("Решение: "+s1+"*"+s2+"="+decAndGreek.get(x1*x2).toString()+";" ); } //System.out.println("Ваше выражение: "+x1+"*"+x2+"="+(x1*x2)+";" );
                 }
             }
             catch (Exception e)
