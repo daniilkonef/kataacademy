@@ -266,9 +266,11 @@ public class Main {
                 Object ob1 = greekAndDec.get(parts[0]); Object ob2 = greekAndDec.get(parts[1]);
                 int x1 = greekAndDec.get(parts[0]); int x2 = greekAndDec.get(parts[1]);
                 String s1 = parts[0]; String s2 = parts[1];
-
+                //if ( ((Integer) ob1).intValue() <= ((Integer) ob2).intValue() ) throw new Exception("Римская математика не умеет работать с отрицательными числами.");
+                if ( x1 <= x2 ) throw new Exception("Римская математика не умеет работать с отрицательными числами.");
                 if( (ob1 instanceof Integer) && (ob2 instanceof Integer))
                 {
+
                     //System.out.println("имеем дело с целочисленным выражением");
                     if (consoleLine.contains("+")) {result = new String("Решение: "+s1+"+"+s2+"="+decAndGreek.get(x1+x2).toString()+";" ); }   //System.out.println("Ваше выражение: "+x1+"+"+x2+"="+(x1+x2)+";" );
                     if (consoleLine.contains("-")) {result = new String("Решение: "+s1+"-"+s2+"="+decAndGreek.get(x1-x2).toString()+";" ); }  //System.out.println("Ваше выражение: "+x1+"-"+x2+"="+(x1-x2)+";" );
@@ -278,7 +280,8 @@ public class Main {
             }
             catch (Exception e)
             {
-                System.out.print("Произошло исключение в греческом вычислителе, требуются исправления.");
+                result = "отрицательно!";
+                System.out.print(e.getMessage());
             }
 
         }
