@@ -142,13 +142,19 @@ public class Main {
                 //то вычислить арабским вычислителем
             try
                 {
-                    System.out.println( calc(query, checkNotationSystem(query, romansAndArabs),romansAndArabs, arabsAndRomans )); // HashMap<Integer,String> arabsAndRomans
+
+                    String message = calc(query, checkNotationSystem(query, romansAndArabs),romansAndArabs, arabsAndRomans );
+                    System.out.println( message );
                 }
-            catch (Exception e1)
+            catch (Exception e)
                 {
-                    System.out.println(e1.getMessage());
+                    System.out.println(e.getMessage());
                     break;
                 }
+//            catch (MinusException e)
+//            {
+//                System.out.println();
+//            }
 
             System.out.println();
         }
@@ -217,7 +223,7 @@ public class Main {
 
     }
 
-    public static String calc(String query, String typeOfNotationSystem, HashMap<String,Integer> greekAndDec, HashMap<Integer,String> decAndGreek) throws Exception
+    public static String calc(String query, String typeOfNotationSystem, HashMap<String,Integer> greekAndDec, HashMap<Integer,String> decAndGreek) throws Exception, MinusException
     {
         String result = "не удалось решить выражение, введите только арабские или только греческие цифры.";
         String consoleLine = query;
@@ -251,38 +257,29 @@ public class Main {
 
         if (typeOfNotationSystem.contains(new String("Обнаружена греческая система счисления")))
         {
-            //System.out.println("Греческий вычислитель нуждается в разработке.");
-            //String leftString=null, rightString=null;
-            //leftString = parts[0];  ob1 = leftString;
-            //rightString = parts[1];  ob2 = rightString;
+//            try
+//            {
+                    Object ob1 = greekAndDec.get(parts[0]); Object ob2 = greekAndDec.get(parts[1]);
+                    int x1 = greekAndDec.get(parts[0]); int x2 = greekAndDec.get(parts[1]);
+                    String s1 = parts[0]; String s2 = parts[1];
+                    //if ( ((Integer) ob1).intValue() < ((Integer) ob2).intValue() ) throw new Exception("Римская математика не умеет работать с отрицательными числами.");
+                    if ( x1 < x2 ) throw new MinusException("Римская математика не умеет работать с отрицательным результатом. И это запрещено п10 Техзадания.");
+                    if ( (x1-x2)==0 ) throw new MinusException("Римская математика не умеет работать с нулевым результатом. И это запрещено п10 Техзадания.");
+                    if( (ob1 instanceof Integer) && (ob2 instanceof Integer))
+                    {
 
-            //System.out.println(greekAndDec);
-            //System.out.println(greekAndDec.get("VII"));
-            //System.out.println( greekAndDec.get(parts[0]) );
-            //System.out.println( greekAndDec.get(parts[1]) );
-            //System.out.println(greekAndDec.containsKey("VII"));
-
-            try {
-                Object ob1 = greekAndDec.get(parts[0]); Object ob2 = greekAndDec.get(parts[1]);
-                int x1 = greekAndDec.get(parts[0]); int x2 = greekAndDec.get(parts[1]);
-                String s1 = parts[0]; String s2 = parts[1];
-                //if ( ((Integer) ob1).intValue() <= ((Integer) ob2).intValue() ) throw new Exception("Римская математика не умеет работать с отрицательными числами.");
-                if ( x1 <= x2 ) throw new Exception("Римская математика не умеет работать с отрицательными числами.");
-                if( (ob1 instanceof Integer) && (ob2 instanceof Integer))
-                {
-
-                    //System.out.println("имеем дело с целочисленным выражением");
-                    if (consoleLine.contains("+")) {result = new String("Решение: "+s1+"+"+s2+"="+decAndGreek.get(x1+x2).toString()+";" ); }   //System.out.println("Ваше выражение: "+x1+"+"+x2+"="+(x1+x2)+";" );
-                    if (consoleLine.contains("-")) {result = new String("Решение: "+s1+"-"+s2+"="+decAndGreek.get(x1-x2).toString()+";" ); }  //System.out.println("Ваше выражение: "+x1+"-"+x2+"="+(x1-x2)+";" );
-                    if (consoleLine.contains("/")) {result = new String("Решение: "+s1+"/"+s2+"="+decAndGreek.get(x1/x2).toString()+";" ); }   //System.out.println("Ваше выражение: "+x1+"/"+x2+"="+(x1/x2)+";" );
-                    if (consoleLine.contains("*")) {result = new String("Решение: "+s1+"*"+s2+"="+decAndGreek.get(x1*x2).toString()+";" ); } //System.out.println("Ваше выражение: "+x1+"*"+x2+"="+(x1*x2)+";" );
-                }
-            }
-            catch (Exception e)
-            {
-                result = "отрицательно!";
-                System.out.print(e.getMessage());
-            }
+                        //System.out.println("имеем дело с целочисленным выражением");
+                        if (consoleLine.contains("+")) {result = new String("Решение: "+s1+"+"+s2+"="+decAndGreek.get(x1+x2).toString()+";" ); }   //System.out.println("Ваше выражение: "+x1+"+"+x2+"="+(x1+x2)+";" );
+                        if (consoleLine.contains("-")) {result = new String("Решение: "+s1+"-"+s2+"="+decAndGreek.get(x1-x2).toString()+";" ); }  //System.out.println("Ваше выражение: "+x1+"-"+x2+"="+(x1-x2)+";" );
+                        if (consoleLine.contains("/")) {result = new String("Решение: "+s1+"/"+s2+"="+decAndGreek.get(x1/x2).toString()+";" ); }   //System.out.println("Ваше выражение: "+x1+"/"+x2+"="+(x1/x2)+";" );
+                        if (consoleLine.contains("*")) {result = new String("Решение: "+s1+"*"+s2+"="+decAndGreek.get(x1*x2).toString()+";" ); } //System.out.println("Ваше выражение: "+x1+"*"+x2+"="+(x1*x2)+";" );
+                    }
+                //}
+    //            catch (Exception e)
+    //            {
+    //                result = "отрицательно!";
+    //                System.out.print(e.getMessage());
+    //            }
 
         }
 
@@ -293,7 +290,7 @@ public class Main {
 //         если (обе части имеют истину) то:
 //              преобразовать левую часть в арабское число;
 //              преобразовать правую часть в арабское число;
-        if(result.contains("не удалось решить выражение, введите только арабские или только греческие цифры.")) throw new Exception("Ошибка: введенное выражени еявляется смешанным. Это запрещено согласно п5 Технического Задания.");
+        if(result.contains("не удалось решить выражение, введите только арабские или только греческие цифры.")) throw new Exception("Ошибка: Введенное выражение запрещено обрабатывать согласно п5,п8 Техзадания.");
         return result;
     }
 }
